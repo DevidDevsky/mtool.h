@@ -2,6 +2,7 @@
 #define MTOOL_H
 
 #include <stddef.h> 
+#include <stdlib.h> 
 
 // --- TYPE STRING ---
 typedef struct {
