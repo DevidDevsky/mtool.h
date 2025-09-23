@@ -1,0 +1,5 @@
+*.o
+*.out
+test_input
+
+.DS_Store
