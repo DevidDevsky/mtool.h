@@ -8,6 +8,16 @@
 
 ---
 
+## 📑 Содержание
+
+- [Возможности](#возможности)
+- [Установка](#установка)
+- [Использование](#использование)
+- [Планы развития](#планы-развития)
+- [Автор](#автор)
+
+---
+
 ## ✨ Возможности
 
 На данный момент реализованы модули:
@@ -54,33 +64,42 @@ ar rcs libmtool.a src/ctype.o
 # 3. Установите заголовки и библиотеку
 sudo cp include/*.h /usr/local/include/
 sudo cp libmtool.a /usr/local/lib/
+```
 
-#⚡ Использование
+## 🚀 Использование
 
 Пример программы:
-include <mtool.h>
-include <stdio.h>
+
+```c
+#include <mtool.h>
+#include <stdio.h>
 
 int main(void) {
     printf("isupper(A) = %d\n", m_isupper('A'));
     printf("tolower(Z) = %c\n", m_tolower('Z'));
     return 0;
 }
+```
 
-#Компиляция:
+Компиляция и запуск:
+
+```bash
 gcc main.c -o main -lmtool
 ./main
+```
 
-#Вывод:
+Ожидаемый вывод:
+
+```text
 isupper(A) = 1
 tolower(Z) = z
 ```
 
 ## 🔮 Планы развития
-	•	Реализация математических функций (m_sin, m_cos, m_pow, m_sqrt)
-	•	Расширение возможностей m_mprintf (поддержка %f, %x и т.д.)
-	•	Добавление работы с файлами
+- Реализация математических функций (`m_sin`, `m_cos`, `m_pow`, `m_sqrt`)
+- Расширение возможностей `m_mprintf` (поддержка `%f`, `%x` и т.д.)
+- Добавление работы с файлами
 
 ## 👨‍💻 Автор
-Разработчик: Devid Copperfild
-GitHub: DevidCopperfild
+Разработчик: Devid Copperfild  
+GitHub: [@DevidCopperfild](https://github.com/DevidCopperfild)
