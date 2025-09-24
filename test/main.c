@@ -1,4 +1,4 @@
-#include "mtool.h"
+#include <mtool.h>
 
 int main() {
     int age = m_get_int("Введите ваш возраст: ");

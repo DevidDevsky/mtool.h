@@ -1,0 +1,86 @@
+# 📘 mtool.h
+
+**mtool.h** — это учебная C-библиотека, созданная как лёгкая альтернатива стандартным библиотекам  
+`ctype.h`, `string.h`, `stdio.h` и `math.h`.  
+
+Её цель — показать, как можно **самостоятельно реализовать** базовые функции работы с текстом, числами и вводом/выводом,  
+чтобы глубже понять язык C.
+
+---
+
+## ✨ Возможности
+
+На данный момент реализованы модули:
+
+### 🔤 Модуль `ctype`
+Функции проверки и преобразования символов (полный аналог `ctype.h`, но с префиксом `m_`):
+
+- `m_isalnum(int c)` — проверка: буква или цифра  
+- `m_isalpha(int c)` — проверка: буква  
+- `m_iscntrl(int c)` — проверка: управляющий символ  
+- `m_isdigit(int c)` — проверка: цифра  
+- `m_isgraph(int c)` — проверка: печатаемый символ кроме пробела  
+- `m_islower(int c)` — проверка: строчная буква  
+- `m_isupper(int c)` — проверка: заглавная буква  
+- `m_isprint(int c)` — проверка: печатаемый символ (включая пробел)  
+- `m_ispunct(int c)` — проверка: знак пунктуации  
+- `m_isspace(int c)` — проверка: пробельный символ  
+- `m_isxdigit(int c)` — проверка: шестнадцатеричная цифра  
+- `m_tolower(int c)` — перевод в нижний регистр  
+- `m_toupper(int c)` — перевод в верхний регистр  
+
+### 🖨️ Модуль `printf`
+- `m_mprintf(const char *fmt, ...)` — собственная реализация упрощённого `printf`.
+
+### 📥 Модуль `input`
+- `m_get_double()` — ввод числа с плавающей точкой  
+- `m_get_string()` — ввод строки с динамическим выделением памяти  
+- `m_get_int()` — ввод целого числа  
+- `string` — новый тип данных, аналог `char x[n]`, автоматически считает длину строки  
+
+---
+
+## 📦 Установка
+
+```bash
+# 1. Склонируйте репозиторий
+git clone https://github.com/DevidCopperfild/mtool.h.git
+cd mtool.h
+
+# 2. Соберите библиотеку
+gcc -Wall -Wextra -Iinclude -c src/ctype.c -o src/ctype.o
+ar rcs libmtool.a src/ctype.o
+
+# 3. Установите заголовки и библиотеку
+sudo cp include/*.h /usr/local/include/
+sudo cp libmtool.a /usr/local/lib/
+
+#⚡ Использование
+
+Пример программы:
+include <mtool.h>
+include <stdio.h>
+
+int main(void) {
+    printf("isupper(A) = %d\n", m_isupper('A'));
+    printf("tolower(Z) = %c\n", m_tolower('Z'));
+    return 0;
+}
+
+#Компиляция:
+gcc main.c -o main -lmtool
+./main
+
+#Вывод:
+isupper(A) = 1
+tolower(Z) = z
+```
+
+## 🔮 Планы развития
+	•	Реализация математических функций (m_sin, m_cos, m_pow, m_sqrt)
+	•	Расширение возможностей m_mprintf (поддержка %f, %x и т.д.)
+	•	Добавление работы с файлами
+
+## 👨‍💻 Автор
+Разработчик: Devid Copperfild
+GitHub: DevidCopperfild
