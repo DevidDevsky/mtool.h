@@ -2,6 +2,7 @@
 #define MTOOL_H
 
 #include <stddef.h> 
+#include <stdlib.h> 
 
 // --- TYPE STRING ---
 typedef struct {
@@ -23,9 +24,19 @@ double m_mpow(double base, double exp);
 double m_msqrt(double x);
 
 // --- CTYPE ---
-int m_misdigit(char c);
-int m_misalpha(char c);
-char m_mto_lower(char c);
-char m_mto_upper(char c);
+int m_isalnum(char c);
+int m_isalpha(char c);
+int m_iscntrl(char c);
+int m_isdigit(char c);
+int m_isgraph(char c);
+int m_islower(char c);
+int m_isupper(char c);
+int m_isprint(char c);
+int m_ispunct(char c);
+int m_isspace(char c);
+int m_isxdigit(char c);
+
+char m_tolower(char c);
+char m_toupper(char c);
 
 #endif
