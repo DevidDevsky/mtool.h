@@ -8,7 +8,7 @@ static size_t utf8_strlen(const char *s) {
     unsigned char *p = (unsigned char *)s;
 
     while (*p) {
-        if ((*p & 0xC0) != 0x80) { // не продолжение многобайтового символа
+        if ((*p & 0xC0) != 0x80) { // NOT CONTINUE MOREBYTES SYMBOLS
             count++;
         }
         p++;
