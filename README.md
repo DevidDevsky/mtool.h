@@ -1,5 +1,7 @@
 # 📘 mtool.h
 
+[Русская версия](README.ru.md)
+
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)](https://github.com/DevidCopperfild/mtool.h) [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 
 **mtool.h** is an educational C library created as a lightweight alternative to standard libraries like `ctype.h`, `string.h`, `stdio.h`, and `math.h`.
