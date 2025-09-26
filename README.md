@@ -56,18 +56,24 @@ Character checking and conversion functions (a complete analog of `ctype.h`, but
 
 ## 📦 Installation
 
+The following instructions are for macOS and Linux systems.
+
 ```bash
 # 1. Clone the repository
 git clone https://github.com/DevidCopperfild/mtool.h.git
 cd mtool.h
 
-# 2. Build the library
-gcc -Wall -Wextra -Iinclude -c src/ctype.c -o src/ctype.o
-ar rcs libmtool.a src/ctype.o
+# 2. Compile the source code into an object file
+gcc -c src/mtool.c -o mtool.o
 
-# 3. Install the headers and the library
-sudo cp include/*.h /usr/local/include/
-sudo cp libmtool.a /usr/local/lib/
+# 3. Create the static and dynamic libraries
+ar rcs libmtool.a mtool.o
+gcc -shared -o libmtool.dylib mtool.o -install_name /usr/local/lib/libmtool.dylib
+
+# 4. Install the library and header files
+# You may be prompted to enter your password
+sudo cp libmtool.a libmtool.dylib /usr/local/lib/
+sudo cp src/mtool.h /usr/local/include/
 ```
 
 ---

@@ -56,18 +56,24 @@
 
 ## 📦 Установка
 
+Инструкции ниже предназначены для систем macOS и Linux.
+
 ```bash
 # 1. Склонируйте репозиторий
 git clone https://github.com/DevidCopperfild/mtool.h.git
 cd mtool.h
 
-# 2. Соберите библиотеку
-gcc -Wall -Wextra -Iinclude -c src/ctype.c -o src/ctype.o
-ar rcs libmtool.a src/ctype.o
+# 2. Скомпилируйте исходный код в объектный файл
+gcc -c src/mtool.c -o mtool.o
 
-# 3. Установите заголовки и библиотеку
-sudo cp include/*.h /usr/local/include/
-sudo cp libmtool.a /usr/local/lib/
+# 3. Создайте статическую и динамическую библиотеки
+ar rcs libmtool.a mtool.o
+gcc -shared -o libmtool.dylib mtool.o -install_name /usr/local/lib/libmtool.dylib
+
+# 4. Установите библиотеку и заголовочный файл
+# Может потребоваться ввод пароля администратора
+sudo cp libmtool.a libmtool.dylib /usr/local/lib/
+sudo cp src/mtool.h /usr/local/include/
 ```
 
 ---
