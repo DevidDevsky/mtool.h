@@ -1,4 +1,4 @@
-#include <mtool.h>
+#include "src/mtool.h"
 #include <stdio.h>
 
 int main(void)
