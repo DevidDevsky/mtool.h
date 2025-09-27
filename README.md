@@ -56,25 +56,61 @@ Character checking and conversion functions (a complete analog of `ctype.h`, but
 
 ## 📦 Installation
 
-The following instructions are for macOS and Linux systems.
+### macOS and Linux
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/DevidCopperfild/mtool.h.git
-cd mtool.h
+For macOS and Linux, you can use the provided `Makefile` to easily build and install the library.
 
-# 2. Compile the source code into an object file
-gcc -c src/mtool.c -o mtool.o
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/DevidCopperfild/mtool.h.git
+    cd mtool.h
+    ```
 
-# 3. Create the static and dynamic libraries
-ar rcs libmtool.a mtool.o
-gcc -shared -o libmtool.dylib mtool.o -install_name /usr/local/lib/libmtool.dylib
+2.  **Build the library:**
+    This command compiles the source code and creates both a static (`libmtool.a`) and a shared library (`libmtool.dylib` on macOS or `libmtool.so` on Linux).
+    ```bash
+    make
+    ```
 
-# 4. Install the library and header files
-# You may be prompted to enter your password
-sudo cp libmtool.a libmtool.dylib /usr/local/lib/
-sudo cp src/mtool.h /usr/local/include/
-```
+3.  **Install the library:**
+    This command copies the header file and the libraries to a standard system location (`/usr/local/include` and `/usr/local/lib`). You may be prompted for your password.
+    ```bash
+    sudo make install
+    ```
+
+4.  **(Optional) Uninstall the library:**
+    If you need to remove the library from your system, you can use:
+    ```bash
+    sudo make uninstall
+    ```
+
+### Windows
+
+For Windows, it is recommended to use the **MinGW-w64** compiler to build the library.
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/DevidCopperfild/mtool.h.git
+    cd mtool.h
+    ```
+
+2.  **Build the libraries:**
+    Open a terminal (like Git Bash or Command Prompt) and run the following commands to create the object file, static library, and shared library (DLL).
+    ```bash
+    # Compile the source code into an object file
+    gcc -c src/mtool.c -o mtool.o
+
+    # Create the static library (.a)
+    ar rcs libmtool.a mtool.o
+
+    # Create the shared library (.dll)
+    gcc -shared -o libmtool.dll mtool.o
+    ```
+
+3.  **Manual Installation:**
+    After building, you need to place the files in a location where your compiler can find them.
+    -   Copy `src/mtool.h` to your compiler's `include` directory (e.g., `C:\MinGW\include`).
+    -   Copy `libmtool.a` and `libmtool.dll` to your compiler's `lib` directory (e.g., `C:\MinGW\lib`).
 
 ---
 
